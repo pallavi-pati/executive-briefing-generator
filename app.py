@@ -27,7 +27,7 @@ if st.button("Generate Briefing", type="primary", disabled=not url):
         st.error("ANTHROPIC_API_KEY not found in Streamlit secrets.")
         st.stop()
 
-    client = anthropic.Anthropic(api_key=api_key)
+    client = anthropic.Anthropic(api_key=api_key, timeout=120.0)
     url_type = detect_url_type(url)
     prompt = build_prompt(url, url_type, context)
 
@@ -37,8 +37,7 @@ if st.button("Generate Briefing", type="primary", disabled=not url):
                 model="claude-sonnet-4-6",
                 max_tokens=8000,
                 tools=[
-                    {"type": "web_search_20260209", "name": "web_search"},
-                    {"type": "web_fetch_20260209", "name": "web_fetch"},
+                    {"type": "web_search_20250305", "name": "web_search"},
                 ],
                 messages=[{"role": "user", "content": prompt}],
             ) as stream:

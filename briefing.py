@@ -43,12 +43,7 @@ I have an upcoming meeting with someone whose LinkedIn profile is: {url}{context
 
 Research this person thoroughly using web search, then write a professional pre-meeting executive briefing.
 
-Steps to follow:
-1. Search for their name and LinkedIn profile to get their current role, company, and background.
-2. Search for recent news articles, interviews, or press coverage featuring them.
-3. Research their current company — what it does, its stage, recent news.
-4. Look for any public writing, talks, podcasts, or thought leadership content they've produced.
-5. Search for any controversies, departures, or notable events involving them.
+Do 2–3 web searches to research this person, then write the briefing. Focus on: their current role and background, their company, and any recent news.
 
 Structure the final briefing exactly as follows (use these exact markdown headings):
 
@@ -97,12 +92,7 @@ I have an upcoming meeting with someone from this company: {url}{context_line}
 
 Research this company thoroughly using web search, then write a professional pre-meeting executive briefing.
 
-Steps to follow:
-1. Fetch or search the company's website and LinkedIn page to understand what they do.
-2. Search for recent news: funding, product launches, partnerships, acquisitions, layoffs.
-3. Research the CEO and key leadership team — their backgrounds and public statements.
-4. Look for analyst coverage, customer reviews, or market positioning data.
-5. Search for any controversies, financial difficulties, or regulatory issues.
+Do 2–3 web searches to research this company, then write the briefing. Focus on: what they do, their recent news, and their leadership.
 
 Structure the final briefing exactly as follows (use these exact markdown headings):
 
