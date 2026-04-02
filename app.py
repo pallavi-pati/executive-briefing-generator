@@ -31,19 +31,27 @@ if st.button("Generate Briefing", type="primary", disabled=not url):
     url_type = detect_url_type(url)
     prompt = build_prompt(url, url_type, context)
 
-    with st.spinner("Researching via web search — this takes about 30–60 seconds..."):
-        with client.messages.stream(
-            model="claude-opus-4-6",
-            max_tokens=8000,
-            tools=[
-                {"type": "web_search_20260209", "name": "web_search"},
-                {"type": "web_fetch_20260209", "name": "web_fetch"},
-            ],
-            messages=[{"role": "user", "content": prompt}],
-        ) as stream:
-            final = stream.get_final_message()
+    try:
+        with st.spinner("Researching via web search — this takes about 30–60 seconds..."):
+            with client.messages.stream(
+                model="claude-sonnet-4-6",
+                max_tokens=8000,
+                tools=[
+                    {"type": "web_search_20260209", "name": "web_search"},
+                    {"type": "web_fetch_20260209", "name": "web_fetch"},
+                ],
+                messages=[{"role": "user", "content": prompt}],
+            ) as stream:
+                final = stream.get_final_message()
 
-    full_text = next(
-        (block.text for block in final.content if block.type == "text"), ""
-    )
-    st.markdown(full_text)
+        full_text = next(
+            (block.text for block in final.content if block.type == "text"), ""
+        )
+        st.markdown(full_text)
+
+    except anthropic.RateLimitError:
+        st.error("Rate limit reached — please wait a minute and try again.")
+    except anthropic.AuthenticationError:
+        st.error("Invalid API key. Check your Streamlit secrets.")
+    except Exception as e:
+        st.error(f"Something went wrong: {e}")
