@@ -32,7 +32,7 @@ if st.button("Generate Briefing", type="primary", disabled=not url):
     prompt = build_prompt(url, url_type, context)
 
     with st.spinner("Researching via web search — this takes about 30–60 seconds..."):
-        response = client.messages.create(
+        with client.messages.stream(
             model="claude-opus-4-6",
             max_tokens=8000,
             tools=[
@@ -40,9 +40,10 @@ if st.button("Generate Briefing", type="primary", disabled=not url):
                 {"type": "web_fetch_20260209", "name": "web_fetch"},
             ],
             messages=[{"role": "user", "content": prompt}],
-        )
+        ) as stream:
+            final = stream.get_final_message()
 
     full_text = next(
-        (block.text for block in response.content if block.type == "text"), ""
+        (block.text for block in final.content if block.type == "text"), ""
     )
     st.markdown(full_text)
