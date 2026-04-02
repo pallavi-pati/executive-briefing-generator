@@ -34,7 +34,7 @@ if st.button("Generate Briefing", type="primary", disabled=not url):
     try:
         with st.spinner("Researching via web search — this takes about 30–60 seconds..."):
             with client.messages.stream(
-                model="claude-sonnet-4-6",
+                model="claude-haiku-4-5",
                 max_tokens=8000,
                 tools=[
                     {"type": "web_search_20250305", "name": "web_search"},
