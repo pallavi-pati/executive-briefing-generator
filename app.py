@@ -32,13 +32,10 @@ if st.button("Generate Briefing", type="primary", disabled=not url):
     prompt = build_prompt(url, url_type, context)
 
     try:
-        with st.spinner("Researching via web search — this takes about 30–60 seconds..."):
+        with st.spinner("Generating briefing — this takes about 15 seconds..."):
             with client.messages.stream(
                 model="claude-haiku-4-5",
                 max_tokens=8000,
-                tools=[
-                    {"type": "web_search_20250305", "name": "web_search"},
-                ],
                 messages=[{"role": "user", "content": prompt}],
             ) as stream:
                 final = stream.get_final_message()

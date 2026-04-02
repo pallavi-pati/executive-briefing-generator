@@ -43,7 +43,7 @@ I have an upcoming meeting with someone whose LinkedIn profile is: {url}{context
 
 Research this person thoroughly using web search, then write a professional pre-meeting executive briefing.
 
-Do 2–3 web searches to research this person, then write the briefing. Focus on: their current role and background, their company, and any recent news.
+Using your training knowledge, write a professional pre-meeting executive briefing. Note in the briefing if your knowledge may be outdated for any section.
 
 Structure the final briefing exactly as follows (use these exact markdown headings):
 
@@ -92,7 +92,7 @@ I have an upcoming meeting with someone from this company: {url}{context_line}
 
 Research this company thoroughly using web search, then write a professional pre-meeting executive briefing.
 
-Do 2–3 web searches to research this company, then write the briefing. Focus on: what they do, their recent news, and their leadership.
+Using your training knowledge, write a professional pre-meeting executive briefing. Note in the briefing if your knowledge may be outdated for any section.
 
 Structure the final briefing exactly as follows (use these exact markdown headings):
 
